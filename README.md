@@ -12,6 +12,8 @@ And Vulcand is watching etcd to automatically detect new rules it needs to imple
 
 More information available at http://www.vulcanproxy.com
 
+This tool isn't "production ready" and was developped to show end to end automation.
+
 I use Mesos because, even if the native container support has just been added, Mesos is already a robust platform and can be used to deploy other workloads, like Hadoop
 
 ### Configuration
