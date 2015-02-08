@@ -12,7 +12,7 @@ And Vulcand is watching etcd to automatically detect new rules it needs to imple
 
 More information available at http://www.vulcanproxy.com
 
-This tool isn't "production ready" and was developped to show end to end automation.
+This tool isn't "production ready" and was developed to show end to end automation.
 
 I use Mesos because, even if the native container support has just been added, Mesos is already a robust platform and can be used to deploy other workloads, like Hadoop
 
@@ -32,19 +32,19 @@ Then, you need to create a subdirectory using the name of the Marathon app:
 etcdctl mkdir /mesos-vulcan/app1
 ```
 
-Finally, you need to indicate the Vulcanproxy frontends and backends to use for this Marathon app
+Finally, you need to indicate the Vulcanproxy frontends and backends to use for this Marathon app:
 
 ```
-etcdctl set /mesos-vulcan/s3pics/frontend f1
-etcdctl set /mesos-vulcan/s3pics/backend b1
+etcdctl set /mesos-vulcan/app1/frontend f1
+etcdctl set /mesos-vulcan/app1/backend b1
 ```
 
 ### Run
 
 This tool will:
 
-- determine what Mesos applications are running without a corresponding vulcand rule in etcd and to create the missing rules
-- determine what vulcand rules exist in etdc for Mesos applications which aren't running anymore to delete them
+- determine what Mesos applications are running without a corresponding vulcand rule in etcd and create the missing rules
+- determine what vulcand rules exist in etdc for Mesos applications which aren't running anymore and delete them
 
 The Syntax is pretty simple:
 
@@ -52,7 +52,7 @@ The Syntax is pretty simple:
 ./mesos-vulcan -MarathonEndPoint=http://<Marathon instance IP>:8080/v2/apps -EtcdEndPoint=http://<Etcd server IP>:4001/v2 -EtcdRootKey=/mesos-vulcan
 ```
 
-You can schedule this tool to run every minute to automatically make your Marathon app externally available
+You can schedule this tool to run every minute to automatically make your Marathon apps externally available
 
 # Licensing
 
